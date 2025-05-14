@@ -1,0 +1,7 @@
+<% if ['resources', 'archival_objects', 'digital_objects', 'digital_object_components', 'classifications', 'classification_terms'].include?(controller.controller_name) && ['new', 'create', 'edit', 'update'].include?(controller.action_name)%>
+  <style>
+     #tree-toolbar .btn-success.finish-editing {
+       display: none;
+    }
+  </style>
+<% end %>
