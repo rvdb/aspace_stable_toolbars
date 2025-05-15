@@ -1,3 +1,6 @@
+<!-- This hack is the easiest way to hide the "close record" button from the tree toolbar in a plugin. Ideally, the close button
+     should be removed from the SHARED_TOOLBAR_ACTIONS variable in frontend/assets/javascripts/tree_toolbar.js.erb, but that has 
+     no effect in a plugin context -->
 <% if ['resources', 'archival_objects', 'digital_objects', 'digital_object_components', 'classifications', 'classification_terms'].include?(controller.controller_name) && ['new', 'create', 'edit', 'update'].include?(controller.action_name)%>
   <style>
      #tree-toolbar .btn-success.finish-editing {
