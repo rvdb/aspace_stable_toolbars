@@ -1,27 +1,27 @@
-<% if user_can?('delete_event_record') %>
-  <div class="record-toolbar">
-    <% if not @event.suppressed %>
-      <% if !['edit', 'update'].include?(controller.action_name) %>
-        <div class="btn-group pull-left">
-          <%= link_to I18n.t("actions.edit"), {:controller => :events, :action => :edit, :id => @event.id}, :class => "btn btn-sm btn-primary" %>
-        </div>
-      <% else %>
-        <div class="pull-left save-changes">
-          <button type="submit" class="btn btn-primary btn-sm"><%= I18n.t("actions.save_prefix") %></button>
-        </div>
-      <% end %>
-
-      <% if ['edit', 'update'].include?(controller.action_name) %>
-        <div class="pull-left close-record">
-          <%= link_to I18n.t("actions.finish_editing"), {:controller => :events, :action => :show, :id => @event.id}, :class => "btn btn-primary btn-sm btn-success finish-editing" %>
-        </div>
-        <div class="pull-left revert-changes">
-          <%= link_to I18n.t("actions.revert"), {:controller => :events, :action => :edit, :id => @event.id}, :class => "btn btn-sm btn-default" %>
-          <%= I18n.t("actions.toolbar_disabled_message") %>
-        </div>
-      <% end %>
+<div class="record-toolbar">
+  <% if not @event.suppressed %>
+    <% if !['edit', 'update'].include?(controller.action_name) %>
+      <div class="btn-group pull-left">
+        <%= link_to I18n.t("actions.edit"), {:controller => :events, :action => :edit, :id => @event.id}, :class => "btn btn-sm btn-primary" %>
+      </div>
+    <% else %>
+      <div class="pull-left save-changes">
+        <button type="submit" class="btn btn-primary btn-sm"><%= I18n.t("actions.save_prefix") %></button>
+      </div>
     <% end %>
 
+    <% if ['edit', 'update'].include?(controller.action_name) %>
+      <div class="pull-left close-record">
+        <%= link_to I18n.t("actions.finish_editing"), {:controller => :events, :action => :show, :id => @event.id}, :class => "btn btn-primary btn-sm btn-success finish-editing" %>
+      </div>
+      <div class="pull-left revert-changes">
+        <%= link_to I18n.t("actions.revert"), {:controller => :events, :action => :edit, :id => @event.id}, :class => "btn btn-sm btn-default" %>
+        <%= I18n.t("actions.toolbar_disabled_message") %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if user_can?('delete_event_record') %>
     <div class="btn-toolbar pull-right">
       <div class="btn-group">
         <div class="btn btn-inline-form">
@@ -29,6 +29,6 @@
         </div>
       </div>
     </div>
-    <div class="clearfix"></div>
-  </div>
-<% end %>
+  <% end %>
+  <div class="clearfix"></div>
+</div>
